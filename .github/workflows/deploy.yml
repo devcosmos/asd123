@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     container: node:20
 
-    secrets: inherit
+    environment: myenvironment
     
     permissions:
       contents: read
