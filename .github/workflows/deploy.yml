@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     container: node:20
 
+    secrets: inherit
+    
     permissions:
       contents: read
       packages: write
