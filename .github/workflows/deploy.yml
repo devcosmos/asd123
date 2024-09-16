@@ -29,15 +29,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Build and Publish to Github Packages Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
-        with:
-          name: devcosmos/asd123/asd123
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: Dockerfile
-          tags: latest
+      # - name: Build and Publish to Github Packages Registry
+      #   uses: elgohr/Publish-Docker-Github-Action@master
+      #   with:
+      #     name: devcosmos/asd123/asd123
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
+      #     dockerfile: Dockerfile
+      #     tags: latest
 
       - name: Deploy package to beget
         uses: appleboy/ssh-action@master
@@ -45,7 +45,7 @@ jobs:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          host: ${{ secrets.BEGET_DEPLOY_HOST }}
+          host: 212.67.15.25
           username: root
           password: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
