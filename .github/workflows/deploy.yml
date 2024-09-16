@@ -39,15 +39,13 @@ jobs:
           dockerfile: Dockerfile
           tags: latest
 
-      - name: Deploy package to digitalocean
+      - name: Deploy package to beget
         uses: appleboy/ssh-action@master
         env:
           GITHUB_USERNAME: ${{ secrets.USERNAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           host: ${{ secrets.BEGET_DEPLOY_HOST }}
-          port: ${{ secrets.BEGET_DEPLOY_PORT }}
-          username: ${{ secrets.BEGET_DEPLOY_USER }}
           password: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
           script: |
