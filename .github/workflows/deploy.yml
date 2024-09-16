@@ -28,7 +28,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it ${{ secrets.BEGET_DEPLOY_HOST }}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it 
       - uses: actions/checkout@v2
 
       # - name: Build and Publish to Github Packages Registry
@@ -41,7 +41,7 @@ jobs:
       #     dockerfile: Dockerfile
       #     tags: latest
 
-      - name: Deploy package to beget
+      - name: Deploy package to beget ${{ secrets.BEGET_DEPLOY_HOST }}
         uses: appleboy/ssh-action@master
         env:
           GITHUB_USERNAME: ${{ github.actor }}
