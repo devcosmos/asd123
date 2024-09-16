@@ -46,6 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           host: ${{ secrets.BEGET_DEPLOY_HOST }}
+          port: 22,
           username: ${{ secrets.BEGET_DEPLOY_USER }}
           password: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
