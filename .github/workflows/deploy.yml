@@ -49,11 +49,10 @@ jobs:
         with:
           host: 212.67.15.25
           username: root
-          password: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
+          password: ${{ BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
           script: |
-            docker login ghcr.io -u $GITHUB_USERNAME -p $GITHUB_TOKEN
-            docker pull ghcr.io/devcosmos/asd123/asd123:latest
-            docker stop containername
+            docker pull ghcr.io/devcosmos/cleaning/cleaning:latest
+            docker stop quirky_euler
             docker system prune -f
-            docker run --name containername -dit -p 3000:3000 ghcr.io/devcosmos/asd123/asd123:latest
+            docker run --name quirky_euler -dit -p 80:3000 ghcr.io/devcosmos/cleaning/cleaning
