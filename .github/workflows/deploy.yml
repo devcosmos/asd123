@@ -41,7 +41,7 @@ jobs:
       #     dockerfile: Dockerfile
       #     tags: latest
 
-      - name: Deploy package to beget ${{ secrets.BEGET_DEPLOY_HOST }}
+      - name: Deploy package to beget
         uses: appleboy/ssh-action@master
         env:
           GITHUB_USERNAME: ${{ github.actor }}
@@ -49,7 +49,7 @@ jobs:
         with:
           host: 212.67.15.25
           username: root
-          password: ${{ BEGET_DEPLOY_PASSWORD }}
+          password: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
           script: |
             docker pull ghcr.io/devcosmos/cleaning/cleaning:latest
