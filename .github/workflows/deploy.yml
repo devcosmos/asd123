@@ -49,7 +49,7 @@ jobs:
         with:
           host: 212.67.15.25
           username: root
-          password: asdasdasd
+          key: ${{ secrets.BEGET_DEPLOY_PASSWORD }}
           envs: GITHUB_USERNAME, GITHUB_TOKEN
           script: |
             docker pull ghcr.io/devcosmos/cleaning/cleaning:latest
